@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+
+kind: Deployment
+
+metadata:
+  name: helloworld-deployment
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: docker-demo
+        image: dreiv/docker-demo
+        ports:
+        - name: node-port
+          containerPort: 3000
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
