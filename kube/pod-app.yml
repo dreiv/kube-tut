@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Pod
 
 metadata:
-  name: nodehelloworld.com
+  name: helloworld.com
   labels:
     app: helloworld
 
@@ -12,4 +12,5 @@ spec:
   - name: docker-demo
     image: dreiv/docker-demo
     ports:
-    - containerPort: 3000
+    - name: nodejs-port
+      containerPort: 3000
